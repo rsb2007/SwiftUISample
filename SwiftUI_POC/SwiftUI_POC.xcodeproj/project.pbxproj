@@ -15,6 +15,8 @@
 		F10A5AAF2593972E0015BD0F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F10A5A992593972E0015BD0F /* Assets.xcassets */; };
 		F10A5ABD2594F8AB0015BD0F /* VehicleRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10A5ABC2594F8AB0015BD0F /* VehicleRow.swift */; };
 		F10A5ABE2594F8AB0015BD0F /* VehicleRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10A5ABC2594F8AB0015BD0F /* VehicleRow.swift */; };
+		F10A5AC2259501340015BD0F /* VehiclesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10A5AC1259501340015BD0F /* VehiclesView.swift */; };
+		F10A5AC3259501340015BD0F /* VehiclesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10A5AC1259501340015BD0F /* VehiclesView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,6 +29,7 @@
 		F10A5AA82593972E0015BD0F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F10A5AA92593972E0015BD0F /* macOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = macOS.entitlements; sourceTree = "<group>"; };
 		F10A5ABC2594F8AB0015BD0F /* VehicleRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VehicleRow.swift; sourceTree = "<group>"; };
+		F10A5AC1259501340015BD0F /* VehiclesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VehiclesView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,6 +67,7 @@
 				F10A5A982593972E0015BD0F /* ContentView.swift */,
 				F10A5A992593972E0015BD0F /* Assets.xcassets */,
 				F10A5ABC2594F8AB0015BD0F /* VehicleRow.swift */,
+				F10A5AC1259501340015BD0F /* VehiclesView.swift */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -194,6 +198,7 @@
 				F10A5AAC2593972E0015BD0F /* ContentView.swift in Sources */,
 				F10A5ABD2594F8AB0015BD0F /* VehicleRow.swift in Sources */,
 				F10A5AAA2593972E0015BD0F /* SwiftUI_POCApp.swift in Sources */,
+				F10A5AC2259501340015BD0F /* VehiclesView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -204,6 +209,7 @@
 				F10A5AAD2593972E0015BD0F /* ContentView.swift in Sources */,
 				F10A5ABE2594F8AB0015BD0F /* VehicleRow.swift in Sources */,
 				F10A5AAB2593972E0015BD0F /* SwiftUI_POCApp.swift in Sources */,
+				F10A5AC3259501340015BD0F /* VehiclesView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
