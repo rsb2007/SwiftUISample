@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct VehicleRow: View {
+    
     var body: some View {
         HStack(alignment: .top) {
             Image(systemName: "externaldrive.fill.badge.checkmark")
