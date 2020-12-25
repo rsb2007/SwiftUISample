@@ -1,13 +1,13 @@
 //
-//  ContentView.swift
-//  Shared
+//  VehicleItem.swift
+//  SwiftUI_POC
 //
-//  Created by Raj Bedi on 12/23/20.
+//  Created by Raj Bedi on 12/25/20.
 //
 
 import SwiftUI
 
-struct ContentView: View {
+struct VehicleItem: View {
     var body: some View {
         VStack {
             VStack(alignment: .leading, spacing: 5) {
@@ -36,14 +36,8 @@ struct ContentView: View {
     }
 }
 
-struct ContentView_Previews: PreviewProvider {
+struct VehicleItem_Previews: PreviewProvider {
     static var previews: some View {
-        Group {
-            ContentView()
-            ContentView()
-                .previewLayout(.fixed(width: 200.0, height: 200.0))
-                .preferredColorScheme(.dark)
-                .frame(height: nil)
-        }
+        VehicleItem()
     }
 }

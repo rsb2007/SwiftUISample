@@ -8,11 +8,26 @@
 import SwiftUI
 
 struct VehiclesView: View {
+    @State var show = false
+    
     var body: some View {
-        List(0 ..< 20) { item in
-            VehicleRow()
+        ZStack {
+            VehicleItem()
+                .frame(width: 325, height: 250)
+            if show {
+                VehicleItem()
+                    .transition(.move(edge: .leading))
+                    .edgesIgnoringSafeArea(.all)
+                    .zIndex(1)
+            }
         }
-        .listStyle(InsetGroupedListStyle())
+        .onTapGesture {
+            withAnimation(.spring()) {
+                show.toggle()
+            }
+            
+        }
+        //.animation(.easeIn)
     }
 }
 
