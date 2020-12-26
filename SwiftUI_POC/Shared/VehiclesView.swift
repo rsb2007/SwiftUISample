@@ -16,11 +16,13 @@ struct VehiclesView: View {
     var body: some View {
         ZStack {
             ScrollView {
-                VStack(spacing: 20) {
+                LazyVGrid(
+                    columns: [GridItem(.adaptive(minimum: 300), spacing: 15)],
+                    spacing: 15) {
                     ForEach(vehicles) { vehicle in
                         VehicleItem(vehicle: vehicle)
                             .matchedGeometryEffect(id: vehicle.id, in: namespace, isSource: !show)
-                            .frame(width: 400, height: 250)
+                            .frame(height: 250)
                             .onTapGesture {
                                 withAnimation(.spring()) {
                                     show.toggle()
@@ -31,6 +33,7 @@ struct VehiclesView: View {
                             .disabled(isDisabled)
                     }
                 }
+                .padding(15)
                 .frame(maxWidth: .infinity)
             }
             if selectedVehicle != nil {
