@@ -10,26 +10,44 @@ import SwiftUI
 struct VehiclesView: View {
     @State var show = false
     @Namespace var namespace
+    @State var selectedVehicle: Vehicle? = nil
+    @State var isDisabled = false
     
     var body: some View {
         ZStack {
             ScrollView {
                 VStack(spacing: 20) {
-                    ForEach(vehicles) { item in
-                        VehicleItem(vehicle: item)
-                            .matchedGeometryEffect(id: item.id, in: namespace, isSource: !show)
+                    ForEach(vehicles) { vehicle in
+                        VehicleItem(vehicle: vehicle)
+                            .matchedGeometryEffect(id: vehicle.id, in: namespace, isSource: !show)
                             .frame(width: 400, height: 250)
+                            .onTapGesture {
+                                withAnimation(.spring()) {
+                                    show.toggle()
+                                    selectedVehicle = vehicle
+                                    isDisabled = true
+                                }
+                            }
+                            .disabled(isDisabled)
                     }
-                   
                 }
                 .frame(maxWidth: .infinity)
             }
-            if show {
+            if selectedVehicle != nil {
                 ScrollView {
-                    VehicleItem(vehicle: vehicles[0])
-                        .matchedGeometryEffect(id: vehicles[0].id, in: namespace)
+                    VehicleItem(vehicle: selectedVehicle!)
+                        .matchedGeometryEffect(id: selectedVehicle!.id, in: namespace)
                         .frame(height: 300)
                         .zIndex(1)
+                        .onTapGesture {
+                            withAnimation(.spring()) {
+                                show.toggle()
+                                selectedVehicle = nil
+                                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                                    isDisabled = false
+                                }
+                            }
+                        }
                     VStack {
                         ForEach(0 ..< 20) { item in
                             VehicleRow()
@@ -40,19 +58,14 @@ struct VehiclesView: View {
                 .background(Color("Background 1"))
                 .transition(
                     .asymmetric(
-                                insertion:  AnyTransition
-                                    .opacity
-                                    .animation(Animation.spring().delay(0.3)),
-                                removal:  AnyTransition
-                                    .opacity
-                                    .animation(.spring()))
-                   )
+                        insertion:  AnyTransition
+                            .opacity
+                            .animation(Animation.spring().delay(0.3)),
+                        removal:  AnyTransition
+                            .opacity
+                            .animation(.spring()))
+                )
                 .edgesIgnoringSafeArea(.all)
-            }
-        }
-        .onTapGesture {
-            withAnimation(.spring()) {
-                show.toggle()
             }
         }
     }

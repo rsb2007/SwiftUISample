@@ -76,6 +76,7 @@
 			isa = PBXGroup;
 			children = (
 				F10A5A972593972E0015BD0F /* SwiftUI_POCApp.swift */,
+				F1BA28A22596CA710073EA2D /* Model */,
 				F1BA289B2596BEBA0073EA2D /* Vehicle.swift */,
 				F10A5AC1259501340015BD0F /* VehiclesView.swift */,
 				F10A5ADA259679820015BD0F /* VehicleList.swift */,
@@ -128,6 +129,13 @@
 				F10A5ACF259676BD0015BD0F /* VehicleItem.swift */,
 			);
 			path = "List Items";
+			sourceTree = "<group>";
+		};
+		F1BA28A22596CA710073EA2D /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
