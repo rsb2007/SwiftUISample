@@ -8,30 +8,38 @@
 import SwiftUI
 
 struct VehicleItem: View {
+    var vehicle: Vehicle = vehicles[0
+    ]
     var body: some View {
         VStack {
             VStack(alignment: .leading, spacing: 5) {
                 Spacer()
                 HStack {
                     Spacer()
-                    Image("Illustration 1")
+                    Image(vehicle.image)
                         .resizable()
                         .aspectRatio(contentMode: .fit)
                     Spacer()
                 }
-                Text("CarMax")
+                Text(vehicle.make)
+                    .font(.largeTitle)
                     .fontWeight(.bold)
                     .foregroundColor(.white)
-                Text("This is where customers get rewarded")
-                    .font(.footnote)
+                Text(vehicle.description)
+                    .font(.title2)
                     .fontWeight(.light)
                     .foregroundColor(.white)
+                Text("$ \(vehicle.price)")
+                    .font(.title3)
+                    .fontWeight(.light)
+                    .foregroundColor(.white)
+                
             }
             .padding(.all)
             .frame(height: nil)
-            .background(Color.blue)
-            .cornerRadius(20.0)
-            .shadow(radius: 10)
+            .background(vehicle.color)
+            .clipShape(RoundedRectangle(cornerRadius: 20, style: .continuous))
+            .shadow(color: vehicle.color.opacity(0.3), radius: 10, x: 0, y: 10)
         }
     }
 }
