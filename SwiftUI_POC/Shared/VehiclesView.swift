@@ -8,16 +8,75 @@
 import SwiftUI
 
 struct VehiclesView: View {
+    @State var show = false
+    @Namespace var namespace
+    @State var selectedVehicle: Vehicle? = nil
+    @State var isDisabled = false
+    
     var body: some View {
-        List(0 ..< 20) { item in
-            VehicleRow()
+        ZStack {
+            ScrollView {
+                VStack(spacing: 20) {
+                    ForEach(vehicles) { vehicle in
+                        VehicleItem(vehicle: vehicle)
+                            .matchedGeometryEffect(id: vehicle.id, in: namespace, isSource: !show)
+                            .frame(width: 400, height: 250)
+                            .onTapGesture {
+                                withAnimation(.spring()) {
+                                    show.toggle()
+                                    selectedVehicle = vehicle
+                                    isDisabled = true
+                                }
+                            }
+                            .disabled(isDisabled)
+                    }
+                }
+                .frame(maxWidth: .infinity)
+            }
+            if selectedVehicle != nil {
+                ScrollView {
+                    VehicleItem(vehicle: selectedVehicle!)
+                        .matchedGeometryEffect(id: selectedVehicle!.id, in: namespace)
+                        .frame(height: 300)
+                        .zIndex(1)
+                        .onTapGesture {
+                            withAnimation(.spring()) {
+                                show.toggle()
+                                selectedVehicle = nil
+                                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                                    isDisabled = false
+                                }
+                            }
+                        }
+                    VStack {
+                        ForEach(0 ..< 20) { item in
+                            VehicleRow()
+                        }
+                    }
+                    .padding()
+                }
+                .background(Color("Background 1"))
+                .transition(
+                    .asymmetric(
+                        insertion:  AnyTransition
+                            .opacity
+                            .animation(Animation.spring().delay(0.3)),
+                        removal:  AnyTransition
+                            .opacity
+                            .animation(.spring()))
+                )
+                .edgesIgnoringSafeArea(.all)
+            }
         }
-        .listStyle(InsetGroupedListStyle())
     }
 }
 
 struct VehiclesView_Previews: PreviewProvider {
     static var previews: some View {
-        VehiclesView()
+        Group {
+            VehiclesView()
+            VehiclesView()
+                .preferredColorScheme(.dark)
+        }
     }
 }
