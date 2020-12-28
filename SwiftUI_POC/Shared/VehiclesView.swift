@@ -15,61 +15,89 @@ struct VehiclesView: View {
     
     var body: some View {
         ZStack {
-            ScrollView {
+            content
+                .navigationBarHidden(true)
+            fullContent
+                .background(VisualEffectBlur(blurStyle: .systemThinMaterial))
+                .edgesIgnoringSafeArea(.all)
+        }
+        .navigationBarTitle("Vehicles")
+    }
+    
+    @ViewBuilder
+    var content: some View {
+        ScrollView {
+            VStack(spacing: 0) {
+                Text("Vehicle")
+                    .font(.largeTitle)
+                    .bold()
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                    .padding(.leading, 15)
+                    .padding(.top, 50)
+                
                 LazyVGrid(
-                    columns: [GridItem(.adaptive(minimum: 300), spacing: 15)],
+                    columns: [GridItem(.adaptive(minimum: 175), spacing: 15)],
                     spacing: 15) {
                     ForEach(vehicles) { vehicle in
-                        VehicleItem(vehicle: vehicle)
-                            .matchedGeometryEffect(id: vehicle.id, in: namespace, isSource: !show)
-                            .frame(height: 250)
-                            .onTapGesture {
-                                withAnimation(.spring()) {
-                                    show.toggle()
-                                    selectedVehicle = vehicle
-                                    isDisabled = true
+                        VStack {
+                            VehicleItem(vehicle: vehicle)
+                                .matchedGeometryEffect(id: vehicle.id, in: namespace, isSource: !show)
+                                .frame(height: 250)
+                                .onTapGesture {
+                                    withAnimation(.spring(response: 0.5, dampingFraction: 0.7, blendDuration: 0)) {
+                                        show.toggle()
+                                        selectedVehicle = vehicle
+                                        isDisabled = true
+                                    }
                                 }
-                            }
-                            .disabled(isDisabled)
+                                .disabled(isDisabled)
+                        }
+                        .matchedGeometryEffect(id: "container\(vehicle.id)", in: namespace, isSource: !show)
                     }
                 }
                 .padding(15)
                 .frame(maxWidth: .infinity)
+                
+                Text("Latest Vehicles")
+                    .fontWeight(.semibold)
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                    .padding()
+                
+                LazyVGrid(columns: [GridItem(.adaptive(minimum: 150))]) {
+                    ForEach(vehicleSections) { item in
+                        VehicleRow(item: item)
+                    }
+                }
+                .padding()
             }
-            if selectedVehicle != nil {
-                ScrollView {
-                    VehicleItem(vehicle: selectedVehicle!)
-                        .matchedGeometryEffect(id: selectedVehicle!.id, in: namespace)
-                        .frame(height: 300)
-                        .zIndex(1)
-                        .onTapGesture {
-                            withAnimation(.spring()) {
-                                show.toggle()
-                                selectedVehicle = nil
-                                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-                                    isDisabled = false
-                                }
+            
+          
+        }
+        .zIndex(1.0)
+    }
+    
+    
+    @ViewBuilder
+    var fullContent: some View {
+        if selectedVehicle != nil {
+            ZStack(alignment: .topTrailing) {
+                VehicleDetail(vehicle: selectedVehicle!, namespace: namespace)
+                CloseButton()
+                    .padding(.trailing, 30)
+                    .padding(.top, 30)
+                    .onTapGesture {
+                        withAnimation(.spring()) {
+                            show.toggle()
+                            selectedVehicle = nil
+                            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                                isDisabled = false
                             }
                         }
-                    VStack {
-                        ForEach(0 ..< 20) { item in
-                            VehicleRow()
-                        }
                     }
-                    .padding()
-                }
-                .background(Color("Background 1"))
-                .transition(
-                    .asymmetric(
-                        insertion:  AnyTransition
-                            .opacity
-                            .animation(Animation.spring().delay(0.3)),
-                        removal:  AnyTransition
-                            .opacity
-                            .animation(.spring()))
-                )
-                .edgesIgnoringSafeArea(.all)
             }
+            .zIndex(2.0)
+            .frame(maxWidth: 712)
+            .frame(maxWidth: .infinity)
         }
     }
 }

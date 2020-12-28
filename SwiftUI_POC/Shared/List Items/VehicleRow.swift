@@ -8,21 +8,23 @@
 import SwiftUI
 
 struct VehicleRow: View {
+    var item: VehicleSection = vehicleSections[0]
     
     var body: some View {
         HStack(alignment: .top) {
-            Image(systemName: "externaldrive.fill.badge.checkmark")
-                .renderingMode(.template)
+            Image(item.logo)
+                .renderingMode(.original)
+                .resizable()
+                .aspectRatio(contentMode: .fit)
                 .frame(width: 48.0, height: 48.0)
-                .imageScale(.medium)
-                .background(Color.blue)
+                .imageScale(.small)
+                .background(item.color)
                 .clipShape(Circle())
-                .foregroundColor(.white)
             VStack(alignment: .leading, spacing: 5.0) {
-                Text("My Vehicle")
+                Text(item.model)
                     .font(.subheadline)
                     .bold()
-                Text("Description")
+                Text(item.description)
                     .font(.footnote)
                     .foregroundColor(.secondary)
             }

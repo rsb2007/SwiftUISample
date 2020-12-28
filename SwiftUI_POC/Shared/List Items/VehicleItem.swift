@@ -8,8 +8,8 @@
 import SwiftUI
 
 struct VehicleItem: View {
-    var vehicle: Vehicle = vehicles[0
-    ]
+    var vehicle: Vehicle = vehicles[0]
+    
     var body: some View {
         VStack {
             VStack(alignment: .leading, spacing: 5) {
@@ -22,18 +22,8 @@ struct VehicleItem: View {
                     Spacer()
                 }
                 Text(vehicle.make)
-                    .font(.largeTitle)
-                    .fontWeight(.bold)
+                    .font(.title)
                     .foregroundColor(.white)
-                Text(vehicle.description)
-                    .font(.title2)
-                    .fontWeight(.light)
-                    .foregroundColor(.white)
-                Text("$ \(vehicle.price)")
-                    .font(.title3)
-                    .fontWeight(.light)
-                    .foregroundColor(.white)
-                
             }
             .padding(.all)
             .frame(height: nil)
