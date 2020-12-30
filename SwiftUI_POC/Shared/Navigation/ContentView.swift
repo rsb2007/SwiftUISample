@@ -8,8 +8,10 @@
 import SwiftUI
 
 struct ContentView: View {
+    @Environment(\.horizontalSizeClass) var horizontalSizeClass: UserInterfaceSizeClass?
+    
     var body: some View {
-        SideBar()
+        VehiclesView()
     }
 }
 

@@ -9,9 +9,12 @@ import SwiftUI
 
 @main
 struct SwiftUI_POCApp: App {
+    
+    @Environment(\.horizontalSizeClass) var horizontalSizeClass: UserInterfaceSizeClass?
+    
     var body: some Scene {
         WindowGroup {
-            SideBar()
+            TabBar()
         }
     }
 }

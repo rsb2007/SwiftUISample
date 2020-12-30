@@ -9,7 +9,7 @@ import SwiftUI
 
 struct VehicleList: View {
     var body: some View {
-        List(0 ..< 20) { item in
+        List(vehicleSections) { item in
             VehicleRow()
         }
         .listStyle(InsetGroupedListStyle())
