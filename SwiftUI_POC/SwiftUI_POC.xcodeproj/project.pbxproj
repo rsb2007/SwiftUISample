@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F10A477E259A877E00DDD780 /* VehicleSectionDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10A477D259A877E00DDD780 /* VehicleSectionDetail.swift */; };
+		F10A477F259A877E00DDD780 /* VehicleSectionDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10A477D259A877E00DDD780 /* VehicleSectionDetail.swift */; };
 		F10A5AAA2593972E0015BD0F /* SwiftUI_POCApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10A5A972593972E0015BD0F /* SwiftUI_POCApp.swift */; };
 		F10A5AAB2593972E0015BD0F /* SwiftUI_POCApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10A5A972593972E0015BD0F /* SwiftUI_POCApp.swift */; };
 		F10A5AAC2593972E0015BD0F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10A5A982593972E0015BD0F /* ContentView.swift */; };
@@ -45,9 +47,12 @@
 		F1BA28DF2598FB5D0073EA2D /* Tutorial.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1BA28D12598FB5C0073EA2D /* Tutorial.swift */; };
 		F1BA28E7259A4B670073EA2D /* VisualEffectBlur.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1BA28E6259A4B670073EA2D /* VisualEffectBlur.swift */; };
 		F1BA28EE259A6B940073EA2D /* TabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1BA28ED259A6B940073EA2D /* TabBar.swift */; };
+		F1CFBCD5259CDC7E005FB19C /* LibraryContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1CFBCD4259CDC7E005FB19C /* LibraryContent.swift */; };
+		F1CFBCD6259CDC7E005FB19C /* LibraryContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1CFBCD4259CDC7E005FB19C /* LibraryContent.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		F10A477D259A877E00DDD780 /* VehicleSectionDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VehicleSectionDetail.swift; sourceTree = "<group>"; };
 		F10A5A972593972E0015BD0F /* SwiftUI_POCApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUI_POCApp.swift; sourceTree = "<group>"; };
 		F10A5A982593972E0015BD0F /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		F10A5A992593972E0015BD0F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -73,6 +78,7 @@
 		F1BA28D12598FB5C0073EA2D /* Tutorial.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tutorial.swift; sourceTree = "<group>"; };
 		F1BA28E6259A4B670073EA2D /* VisualEffectBlur.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VisualEffectBlur.swift; sourceTree = "<group>"; };
 		F1BA28ED259A6B940073EA2D /* TabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBar.swift; sourceTree = "<group>"; };
+		F1CFBCD4259CDC7E005FB19C /* LibraryContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryContent.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,6 +116,7 @@
 				F1BA28A22596CA710073EA2D /* Model */,
 				F10A5AC1259501340015BD0F /* VehiclesView.swift */,
 				F1BA28C62597B5FE0073EA2D /* VehicleDetail.swift */,
+				F10A477D259A877E00DDD780 /* VehicleSectionDetail.swift */,
 				F1BA28A92597A6140073EA2D /* CloseButton.swift */,
 				F10A5ADA259679820015BD0F /* VehicleList.swift */,
 				F10A5ACC2596750C0015BD0F /* List Items */,
@@ -152,6 +159,7 @@
 				F10A5A982593972E0015BD0F /* ContentView.swift */,
 				F1BA28ED259A6B940073EA2D /* TabBar.swift */,
 				F10A5AC6259516E10015BD0F /* SideBar.swift */,
+				F1CFBCD4259CDC7E005FB19C /* LibraryContent.swift */,
 			);
 			path = Navigation;
 			sourceTree = "<group>";
@@ -278,6 +286,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F10A5AC7259516E10015BD0F /* SideBar.swift in Sources */,
+				F10A477E259A877E00DDD780 /* VehicleSectionDetail.swift in Sources */,
 				F10A5ADB259679820015BD0F /* VehicleList.swift in Sources */,
 				F1BA28EE259A6B940073EA2D /* TabBar.swift in Sources */,
 				F1BA28DE2598FB5D0073EA2D /* Tutorial.swift in Sources */,
@@ -295,6 +304,7 @@
 				F1BA28D82598FB5D0073EA2D /* LivestreamSection.swift in Sources */,
 				F1BA28E7259A4B670073EA2D /* VisualEffectBlur.swift in Sources */,
 				F10A5AC2259501340015BD0F /* VehiclesView.swift in Sources */,
+				F1CFBCD5259CDC7E005FB19C /* LibraryContent.swift in Sources */,
 				F1BA28D62598FB5D0073EA2D /* Download.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -316,10 +326,12 @@
 				F1BA28DD2598FB5D0073EA2D /* TutorialSection.swift in Sources */,
 				F10A5AAB2593972E0015BD0F /* SwiftUI_POCApp.swift in Sources */,
 				F1BA28DB2598FB5D0073EA2D /* Livestream.swift in Sources */,
+				F1CFBCD6259CDC7E005FB19C /* LibraryContent.swift in Sources */,
 				F1BA28D32598FB5D0073EA2D /* GradientModel.swift in Sources */,
 				F1BA28D92598FB5D0073EA2D /* LivestreamSection.swift in Sources */,
 				F10A5AC3259501340015BD0F /* VehiclesView.swift in Sources */,
 				F1BA28D72598FB5D0073EA2D /* Download.swift in Sources */,
+				F10A477F259A877E00DDD780 /* VehicleSectionDetail.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -442,6 +454,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = V8ESMM36RY;
 				ENABLE_PREVIEWS = YES;
@@ -451,8 +464,9 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.test.app.SwiftUI-POC";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.test.SwiftUI-POC";
 				PRODUCT_NAME = SwiftUI_POC;
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = iphoneos;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -464,6 +478,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = V8ESMM36RY;
 				ENABLE_PREVIEWS = YES;
@@ -473,8 +488,9 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.test.app.SwiftUI-POC";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.test.SwiftUI-POC";
 				PRODUCT_NAME = SwiftUI_POC;
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = iphoneos;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

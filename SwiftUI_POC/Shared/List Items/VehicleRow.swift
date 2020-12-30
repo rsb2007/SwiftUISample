@@ -24,6 +24,7 @@ struct VehicleRow: View {
                 Text(item.model)
                     .font(.subheadline)
                     .bold()
+                    .foregroundColor(.primary)
                 Text(item.description)
                     .font(.footnote)
                     .foregroundColor(.secondary)

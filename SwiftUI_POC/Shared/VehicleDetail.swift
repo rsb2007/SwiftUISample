@@ -17,6 +17,8 @@ struct VehicleDetail: View {
             .edgesIgnoringSafeArea(.all)
     }
     
+    @State var showModal = false
+    
     @ViewBuilder
     var content: some View {
         VStack {
@@ -28,6 +30,12 @@ struct VehicleDetail: View {
                 VStack {
                     ForEach(vehicleSections) { item in
                         VehicleRow(item: item)
+                            .sheet(isPresented: $showModal) {
+                                VehicleSectionDetail()
+                            }
+                            .onTapGesture {
+                                showModal = true
+                            }
                         Divider()
                     }
                 }
@@ -35,7 +43,7 @@ struct VehicleDetail: View {
             }
         }
         .background(Color("Background 1"))
-        .clipShape(RoundedRectangle(cornerRadius: 22, style: .continuous))
+        .clipShape(RoundedRectangle(cornerRadius: 10, style: .continuous))
         .matchedGeometryEffect(id: "container\(vehicle.id)", in: namespace)
     }
 }

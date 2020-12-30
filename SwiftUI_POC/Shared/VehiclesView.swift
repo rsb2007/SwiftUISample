@@ -10,13 +10,14 @@ import SwiftUI
 struct VehiclesView: View {
     @State var show = false
     @Namespace var namespace
+    @Namespace var namespaceTwo
     @State var selectedVehicle: Vehicle? = nil
     @State var isDisabled = false
+    @Environment(\.horizontalSizeClass) var horizontalSizeClass
     
     var body: some View {
         ZStack {
-            content
-                .navigationBarHidden(true)
+            tabBar
             fullContent
                 .background(VisualEffectBlur(blurStyle: .systemThinMaterial))
                 .edgesIgnoringSafeArea(.all)
@@ -28,13 +29,7 @@ struct VehiclesView: View {
     var content: some View {
         ScrollView {
             VStack(spacing: 0) {
-                Text("Vehicle")
-                    .font(.largeTitle)
-                    .bold()
-                    .frame(maxWidth: .infinity, alignment: .leading)
-                    .padding(.leading, 15)
-                    .padding(.top, 50)
-                
+             
                 LazyVGrid(
                     columns: [GridItem(.adaptive(minimum: 175), spacing: 15)],
                     spacing: 15) {
@@ -65,15 +60,16 @@ struct VehiclesView: View {
                 
                 LazyVGrid(columns: [GridItem(.adaptive(minimum: 150))]) {
                     ForEach(vehicleSections) { item in
-                        VehicleRow(item: item)
+                        NavigationLink(destination: VehicleDetail(namespace: namespaceTwo)){
+                            VehicleRow(item: item)
+                        }
                     }
                 }
                 .padding()
             }
-            
-          
         }
         .zIndex(1.0)
+        .navigationTitle("Vehicles")
     }
     
     
@@ -98,6 +94,71 @@ struct VehiclesView: View {
             .zIndex(2.0)
             .frame(maxWidth: 712)
             .frame(maxWidth: .infinity)
+        }
+    }
+    
+    var tabBar: some View {
+        TabView {
+            NavigationView {
+                content
+            }
+            .tabItem {
+                Image(systemName: "book.closed")
+                Text("Vehicles")
+            }
+            
+            NavigationView {
+                VehicleList()
+            }
+            .tabItem {
+                Image(systemName: "list.bullet.rectangle")
+                Text("Vehicle List")
+            }
+            
+            NavigationView {
+                VehicleList()
+            }
+            .tabItem {
+                Image(systemName: "tv")
+                Text("Livestreams")
+            }
+            
+            NavigationView {
+                VehicleList()
+            }
+            .tabItem {
+                Image(systemName: "mail.stack")
+                Text("Certificates")
+            }
+            NavigationView {
+                VehicleList()
+            }
+            .tabItem {
+                Image(systemName: "magnifyingglass")
+                Text("Search")
+            }
+        }
+    }
+    
+    var sideBar: some View {
+        NavigationView {
+            List {
+                NavigationLink(destination: content) {
+                    Label("Saved Cars", systemImage: "paperclip")
+                }
+                Label("Saved Searches", systemImage: "bookmark.fill")
+                Label("Appointments", systemImage: "externaldrive.badge.checkmark")
+                Label("Make a payment", systemImage: "number")
+                Label("Add a car", systemImage: "externaldrive.badge.plus")
+            }
+            .listStyle(SidebarListStyle())
+            .navigationTitle("My Activity")
+            .toolbar {
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    Image(systemName: "person.crop.circle")
+                }
+            }
+            content 
         }
     }
 }
